@@ -1,7 +1,9 @@
 import './App.css';
 import {useState,useEffect,useCallback} from 'react';
 function App() {
-  const drone = new window.ScaleDrone('2xmbUiTsqTzukyf7');
+  // old key 2xmbUiTsqTzukyf7
+  // new key 2zpfczXuLH7hMxxm
+  const drone = new window.ScaleDrone('2zpfczXuLH7hMxxm');
   if (!window.location.hash) {
      window.location.hash = Math.floor(Math.random() * 0xFFFFFF).toString(16);
    }
@@ -226,12 +228,12 @@ if(loading){
 if(user[0] === 'teacher' && showCommentPage){
   pc.close();
   return <div>
-   <p style={{color:'black',textAlign:'center'}}>Give your feedback to Student </p>
+   <p style={{color:'white',textAlign:'center'}}>Give your feedback to Student </p>
   </div>
 }
 if(user[0] === 'student' && showCommentPage){
   return <div>
-    <p style={{color:'black',textAlign:'center'}}>Give your feedback to Teacher </p>
+    <p style={{color:'white',textAlign:'center'}}>Give your feedback to Teacher </p>
   </div>
 }
   return (
@@ -247,7 +249,7 @@ if(user[0] === 'student' && showCommentPage){
       }
       {
         user[0] === 'student'&& remoteStream===null && (<div>
-          <p className="msgContainer" style={{marginTop:deviceHeight/2-80}}>Searching Teacher for you   0:{counter} s</p>
+          <p className="msgContainer" style={{marginTop:deviceHeight/2-80,color:'white'}}>Searching Teacher for you   0:{counter} s</p>
         </div> )
       }
     {
@@ -265,7 +267,7 @@ if(user[0] === 'student' && showCommentPage){
     }
       <div style={{
         width:'100vw',
-        height:`${user[0]==='teacher'?200:deviceHeight}px`,
+        height:`${user[0]==='teacher'?0:deviceHeight}px`,
       }}>
          <video poster="https://joebirch.co/wp-content/uploads/2021/05/Screenshot_20210527_061703-485x1024.png" style={{
            width:'100vw',
@@ -277,7 +279,7 @@ if(user[0] === 'student' && showCommentPage){
       {
         user[0]==='teacher' && (<video  
           poster="https://joebirch.co/wp-content/uploads/2021/05/Screenshot_20210527_061703-485x1024.png" 
-          style={{width:'100%', height:`${deviceHeight-400}px`,backgroundColor:'#000',display:'block', objectFit: 'cover',}} id="localVideo" autoPlay={true} muted={true} ></video>) 
+          style={{width:'100%', height:`${deviceHeight-200}px`,backgroundColor:'#000',display:'block', objectFit: 'cover',}} id="localVideo" autoPlay={true} muted={true} ></video>) 
       }
       <div style={{width:'100%'}} className="videoption">
         <div style={{display:'flex',justifyContent: 'center' }}>
