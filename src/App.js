@@ -1,15 +1,14 @@
 import './App.css';
 import {useState,useEffect,useCallback} from 'react';
+const drone = new window.ScaleDrone('2zpfczXuLH7hMxxm');
 function App() {
   // old key 2xmbUiTsqTzukyf7
   // new key 2zpfczXuLH7hMxxm
-  const drone = new window.ScaleDrone('2zpfczXuLH7hMxxm');
   if (!window.location.hash) {
      window.location.hash = Math.floor(Math.random() * 0xFFFFFF).toString(16);
    }
   const data = window.location.hash.split("?");
   const roomHash = data[0].substring(1);
-  console.log('roomHash is ',roomHash);
   const roomName = 'observable-' + roomHash;
   const configuration = {
   iceServers: [{
@@ -315,12 +314,14 @@ if(user[0] === 'student' && showCommentPage){
     </div>
   );
 }
-
+ 
 export default App;
 //  https://speakingbookconnect.herokuapp.com/#e9da98c57d4d10fc678d044f625f6dd7?student
 // https://speakingbookconnect.herokuapp.com/#e9da98c57d4d10fc678d044f625f6dd7?teacher=vivek%20rai=https://preview.redd.it/h5gnz1ji36o61.png?width=225&format=png&auto=webp&s=84379f8d3bbe593a2e863c438cd03e84c8a474fa
 // https://speakingbookconnect.herokuapp.com/#e9da98c57d4d10fc678d044f625f6dd7?student=Abhishek%20Singh=https://preview.redd.it/h5gnz1ji36o61.png?width=225&format=png&auto=webp&s=84379f8d3bbe593a2e863c438cd03e84c8a474fa
 
+
+//http://localhost:3000/#e7890?student=Abhishek%20Singh=https://preview.redd.it/h5gnz1ji36o61.png?width=225&format=png&auto=webp&s=84379f8d3bbe593a2e863c438cd03e84c8a474fa
 // http://localhost:3000/#e9da98c57d4d10fc678d044f625f6dd7?teacher=vivek%20rai=https://preview.redd.it/h5gnz1ji36o61.png?width=225&format=png&auto=webp&s=84379f8d3bbe593a2e863c438cd03e84c8a474fa
-// http://localhost:3000/#e9da98c57d4d10fc678d044f625f6dd7?student=Abhishek%20Singh=https://preview.redd.it/h5gnz1ji36o61.png?width=225&format=png&auto=webp&s=84379f8d3bbe593a2e863c438cd03e84c8a474fa
+// 
 // <iframe src="https://giphy.com/embed/tfUW8mhiFk8NlJhgEh" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/britishbakeoff-shock-shocking-liam-charles-tfUW8mhiFk8NlJhgEh">via GIPHY</a></p>
